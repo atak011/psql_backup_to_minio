@@ -18,35 +18,46 @@ A Bash script to automate the backup of a PostgreSQL database and upload the bac
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/atak011/postgresql-backup-to-minio.git
+   git clone https://github.com/<your-username>/postgresql-backup-to-minio.git
    cd postgresql-backup-to-minio
-Make the script executable:
+   ```
 
-bash
-Kodu kopyala
-chmod +x backup_to_minio.sh
-Update the script with your configurations:
+2. Make the script executable:
+   ```bash
+   chmod +x backup_to_minio.sh
+   ```
 
-PostgreSQL:
-PG_HOST, PG_PORT, PG_USER, PG_PASSWORD, PG_DATABASE.
-MinIO:
-MINIO_ALIAS, MINIO_BUCKET, <MINIO_ENDPOINT>, <MINIO_ACCESS_KEY>, <MINIO_SECRET_KEY>.
-Run the script:
+3. Update the script with your configurations:
+   - PostgreSQL:
+     - `PG_HOST`, `PG_PORT`, `PG_USER`, `PG_PASSWORD`, `PG_DATABASE`.
+   - MinIO:
+     - `MINIO_ALIAS`, `MINIO_BUCKET`, `<MINIO_ENDPOINT>`, `<MINIO_ACCESS_KEY>`, `<MINIO_SECRET_KEY>`.
 
-bash
-Kodu kopyala
-./backup_to_minio.sh
-Verify the backup in your MinIO bucket.
+4. Run the script:
+   ```bash
+   ./backup_to_minio.sh
+   ```
 
-Example MinIO Configuration
+5. Verify the backup in your MinIO bucket.
+
+## Example MinIO Configuration
+
 Set the MinIO alias using the following command:
-
-bash
-Kodu kopyala
+```bash
 mc alias set minio http://<MINIO_ENDPOINT> <MINIO_ACCESS_KEY> <MINIO_SECRET_KEY>
-Notes
-Ensure pg_dump is accessible in your system's PATH.
-The script deletes local backup files after uploading them to MinIO. If you want to retain the local files, comment out the rm -f $BACKUP_FILE line in the script.
-Test the script in a staging environment before using it in production.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+```
+
+## Notes
+
+- Ensure `pg_dump` is accessible in your system's PATH.
+- The script deletes local backup files after uploading them to MinIO. If you want to retain the local files, comment out the `rm -f $BACKUP_FILE` line in the script.
+- Test the script in a staging environment before using it in production.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Automate your database backups and secure them in MinIO with ease! 🚀
+
